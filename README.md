@@ -98,7 +98,7 @@ SMB Software
 ------------
 The SMB software implements a simple state machine to monitor and control the power button and power supply state. It also creates the "breathing" effect on the front panel LED while the PiMac is sleeping.
 
-SMB Arduino [code][10]
+SMB Arduino [code][10].  
 ![SMB State Machine Diagram][26]
 
 Putting It All Together

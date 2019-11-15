@@ -1,5 +1,5 @@
 // iMac G5 Raspberry Pi System Management Code: "PiMac"
-//  https://gitlab.com/Andy4495/PiMac
+//  https://github.com/Andy4495/PiMac
 //
 // Version 0.1 - 7/11/2017 - A.T. - Initial code
 // Version 0.2 - 7/12/2017 - A.T. - Re-organized into generic state-machine code with function pointers

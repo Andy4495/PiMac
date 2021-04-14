@@ -147,6 +147,10 @@ References
 + Dremel Junkie [iMac G4][4]
 + Raspberry Pi [Power Design Issue][13]
 
+License
+-------
+The software and other files in this repository are released under what is commonly called the [MIT License][100]. See the file [`LICENSE`][101] in this repository.
+
 [1]: https://everymac.com/systems/apple/imac/specs/imac_g5_2.0_20.html
 [2]: https://everymac.com/systems/apple/imac/specs/imac_1.25_20_fp.html
 [3]: https://tonymacx86.com/threads/kiwis-20-imac-i5.139633/
@@ -169,3 +173,6 @@ References
 [25]: jpg/SMB_Wiring.jpg
 [26]: jpg/SMB_State_Machine.jpg
 [27]: jpg/Final_Assembly.jpg
+
+[100]: https://choosealicense.com/licenses/mit/
+[101]: ./LICENSE

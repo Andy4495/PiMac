@@ -3,7 +3,7 @@
 [![Arduino Compile Sketches](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml)
 [![Check Markdown Links](https://github.com/Andy4495/PiMac/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/CheckMarkdownLinks.yml)
 
-The "PiMac" -- converting a 2005 [iMac G5][1] (Ambient Light Sensor) into a Raspberry Pi desktop.
+The "PiMac" -- converting a 2005 [iMac G5][1] into a Raspberry Pi desktop.
 
 I had an old iMac G5 in storage which, while obsolete, still had a nice 1680x1050 LCD display that I didn't want to throw away.
 
@@ -114,7 +114,43 @@ I created a simpler System Management Board (SMB). It uses an Arduino Pro Mini (
 The SMB Arduino [software][10] implements a simple state machine to monitor and control the power button and power supply state. It also creates the "breathing" effect on the front panel LED while the PiMac is sleeping.
 
 SMB state machine:  
-![SMB State Machine Diagram][26]
+```mermaid
+stateDiagram-v2
+
+    [*] --> sleep
+    Note left of sleep
+      PS_ON inactive
+      LED breathing
+    end Note
+    
+    sleep --> powerUp: Power button pressed
+    Note left of powerUp
+        PS_ON active 
+        LED at 50%
+    end Note
+
+    powerUp --> powerGood: Power button released
+    Note left of powerGood
+      PS_ON active
+      LED at 70%
+    end Note
+
+    powerGood --> sleep: Power_Good signal not detected
+
+    powerGood --> running: Power_Good signal detected
+    Note left of running
+      PS_ON active
+      LED at 100%
+    end Note
+
+    running --> shutDown: Power button pressed
+    Note left of shutDown
+      PS_ON inactive
+      LED at 50%
+    end Note
+
+    shutDown --> sleep: Power button released
+```
 
 ## Putting It All Together
 

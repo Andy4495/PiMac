@@ -94,9 +94,11 @@ However, the circuit connections for the power button and front panel LED were d
 
 For the **power switch**, solder wires directly to pins 2 and 3 of the switch. When looking down at the top side of the PC board, the pins are numbered as follows:  
 
-        1    2
+```text
+      1       2
     switch contacts
           3
+```
 
 For the **front panel LED**, solder wires directly to the SMD solder pads. Kiwi's procedure mentions using vias on the system board. However, my version of the system board did not have the same via connections. I therefore recommend just soldering directly to the LED pads.
 
@@ -114,6 +116,7 @@ I created a simpler System Management Board (SMB). It uses an Arduino Pro Mini (
 The SMB Arduino [software][10] implements a simple state machine to monitor and control the power button and power supply state. It also creates the "breathing" effect on the front panel LED while the PiMac is sleeping.
 
 SMB state machine:  
+
 ```mermaid
 stateDiagram-v2
 
@@ -218,9 +221,9 @@ The software and other files in this repository are released under what is commo
 [23]: jpg/Power_Supply_Wiring_Harness.jpg
 [24]: jpg/SMB_Schematic.jpg
 [25]: jpg/SMB_Wiring.jpg
-[26]: jpg/SMB_State_Machine.jpg
+[//]: # ([26]: jpg/SMB_State_Machine.jpg)
 [27]: jpg/Final_Assembly.jpg
 
 [100]: https://choosealicense.com/licenses/mit/
 [101]: ./LICENSE
-[200]: https://github.com/Andy4495/PiMac
+[//]: # ([200]: https://github.com/Andy4495/PiMac)

@@ -4,12 +4,24 @@ name: Arduino Compile Sketches
 
 on: 
   push:
+  workflow_dispatch:
 
 jobs:
   compile-sketches: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
+      - name: setup-python (when running locally for nektos/act compatibility)
+        if: ${{ env.ACT }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '>=3.11'
+      - name: Install Poetry (when running locally for nektos/act compatibility)
+        if: ${{ env.ACT }}
+        uses: snok/install-poetry@v1
+      - name: Install pipx (when running locally for nektos/act compatibility)
+        if: ${{ env.ACT }}
+        run: pip install pipx
       - uses: arduino/compile-sketches@v1
         with:
           sketch-paths: |

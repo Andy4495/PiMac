@@ -5,32 +5,32 @@ name: Arduino Compile Sketches
 on: 
   push:
   workflow_dispatch:
-
+    inputs:
+      message:
+        description: Message to display in job summary
+        required: false
+        type: string
+  
 jobs:
   compile-sketches: 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - name: Clone compile-sketches to get python version (using nektos/act locally)
-        if: ${{ env.ACT }}
-        run: cd /tmp; git clone 'https://github.com/arduino/compile-sketches'
-      - name: setup-python (when running locally for nektos/act compatibility)
-        if: ${{ env.ACT }}
-        uses: actions/setup-python@v4
-        with:
-          python-version-file: /tmp/compile-sketches/.python-version
-      - name: Install Poetry (when running locally for nektos/act compatibility)
-        if: ${{ env.ACT }}
-        uses: snok/install-poetry@v1
-      - name: Install pipx (when running locally for nektos/act compatibility)
-        if: ${{ env.ACT }}
-        run: pip install pipx
-      - uses: arduino/compile-sketches@v1
-        with:
-          sketch-paths: |
-            - .
-          verbose: true
-          enable-warnings-report: true
-          libraries: |
-            - source-path: ./
+    strategy:
+      matrix:
+        include:
+          - arch: avr
+            fqbn: 'arduino:avr:uno'
+            platform-name: 'arduino:avr'
+            platform-sourceurl: 'https://downloads.arduino.cc/packages/package_index.json'
+
+    name: call-compile-sketches-workflow
+    uses: Andy4495/.github/.github/workflows/arduino-compile-sketches.yml@main
+    with:
+      message: ${{ inputs.message }}
+      copyfile: 
+      fqbn: ${{ matrix.fqbn }}
+      platform-name: ${{ matrix.platform-name }}
+      platform-sourceurl: ${{ matrix.platform-sourceurl }}
+      platform-version: latest
+      libraries: |
+        - source-path: ./
+
 

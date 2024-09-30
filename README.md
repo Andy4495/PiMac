@@ -1,7 +1,7 @@
 # PiMac
 
 [![Arduino Compile Sketches](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml)
-[![Check Markdown Links](https://github.com/Andy4495/PiMac/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/CheckMarkdownLinks.yml)
+[![Check Markdown Links](https://github.com/Andy4495/PiMac/actions/workflows/check-links.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/check-links.yml)
 
 The "PiMac" -- converting a 2005 [iMac G5][1] into a Raspberry Pi desktop.
 

@@ -3,6 +3,8 @@
 [![Arduino Compile Sketches](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/arduino-compile-sketches.yml)
 [![Check Markdown Links](https://github.com/Andy4495/PiMac/actions/workflows/check-links.yml/badge.svg)](https://github.com/Andy4495/PiMac/actions/workflows/check-links.yml)
 
+**NOTE: This repo has been archived and no further updates are planned.**
+
 The "PiMac" -- converting a 2005 [iMac G5][1] into a Raspberry Pi desktop.
 
 I had an old iMac G5 in storage which, while obsolete, still had a nice 1680x1050 LCD display that I didn't want to throw away.
